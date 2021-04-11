@@ -106,6 +106,7 @@ Return<void> FingerprintInscreen::onShowFODView() {
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
+    this->mFodCircleVisible = false;
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
@@ -120,7 +121,7 @@ Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t v
     }
 
     if (acquiredInfo == FINGERPRINT_ACQUIRED_VENDOR) {
-        if (vendorCode == 0) {
+        if (mFodCircleVisible && vendorCode == 0) {
             Return<void> ret = mCallback->onFingerDown();
             if (!ret.isOk()) {
                 LOG(ERROR) << "FingerDown() error: " << ret.description();
@@ -128,7 +129,7 @@ Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t v
             return true;
         }
 
-        if (vendorCode == 1) {
+        if (mFodCircleVisible && vendorCode == 1) {
             Return<void> ret = mCallback->onFingerUp();
             if (!ret.isOk()) {
                 LOG(ERROR) << "FingerUp() error: " << ret.description();
