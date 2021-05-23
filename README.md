@@ -20,15 +20,15 @@ Copyright 2018 - The LineageOS Project.
 
 ![OnePlus 6T](https://cdn2.gsmarena.com/vv/pics/oneplus/oneplus-6t-thunder-purple-1.jpg "OnePlus 6T")
 
-## Temporary build instructions
 
-```
-# Compiling
-$ m[ake|ka] bootimage systemimage
+## Hola amiguitos
 
-# Installing
-$ fastboot --disable-verity --disable-verification flash vbmeta stock_vbmeta.img
-$ fastboot flash boot boot.img
-$ fastboot flash system system.img
-$ fastboot -w reboot
-```
+This is my attempt to fix up and add a little crDroid customization flavor back into the device tree for OnePlus 6T (fajita).
+Moved a few things to common that don't make sense to be separate, and separated a few things that don't make sense to be commonized.
+
+Rebased on the official lineage-18.1 branch of the LineageOS device tree as of May 2021.
+
+* Please note that the lineage.dependencies file is woefully out of date; roomservice will not find everything necessary to compile the ROM correctly. 
+
+* For required manifest modifications, please see https://github.com/Terminator-J/roomservices/ (for marginally less out-of-date dependency info).
+
