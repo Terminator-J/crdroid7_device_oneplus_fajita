@@ -395,10 +395,6 @@
      -->
     <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
 
-    <!-- Height of the status bar -->
-    <dimen name="status_bar_height_portrait">80px</dimen>
-    <dimen name="status_bar_height_landscape">80px</dimen>
-
     <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
     <bool name="config_multiColorBatteryLed">false</bool>
