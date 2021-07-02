@@ -25,5 +25,8 @@ TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.oneplus_fajit
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/framework_manifest.xml
 
+# TWRP
+-include device/oneplus/fajita/twrp/twrp.mk
+
 # inherit from the proprietary version
 -include vendor/oneplus/fajita/BoardConfigVendor.mk
